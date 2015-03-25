@@ -10,36 +10,52 @@ namespace ConditionalLab
     {
         public class TaxFormula
         {
-            public double Length { get; set; }
-            public double Width { get; set; }
-            public double Area
+            public double Income { get; set; }
+            public double TaxRate { get; set; }
+            public double CalulateTaxes
             {
-                get { return Length * Width; }
+                get { return (TaxRate*Income); }
             }
-            public double Perimeter
-            {
-                get { return ((Length * 2) + (Width * 2)); }
-            }
+           
             public TaxFormula() { }
-            public TaxFormula(double l, double w)
+            public TaxFormula(double income,double taxRate)
             {
-                Length = l;
-                Width = w;
+                Income = income;
+                TaxRate = taxRate;
             }
         }
         static void Main(string[] args)
         {
-            Console.Write(" Enter the Length of the land (in Yards): ");
-            Double InputL = Convert.ToDouble(Console.ReadLine());
+            
+            Double income = Convert.ToDouble(args);
+           Double taxRate;
+            MyTaxBracket TaxBracket=new MyTaxBracket(income);
+            switch (TaxBracket)                     
+            {   
+                case MyTaxBracket.lessthanTwenty:
+
+                    TaxFormula taxR = new TaxFormula(income, taxRate);
+                    Decimal TotalTaxes = Convert.ToDecimal((taxR.CalulateTaxes));
+
+                    break;
 
 
 
-            Console.Write(" Enter the Width of the land (in Yards): ");
-            Double InputW = Convert.ToDouble(Console.ReadLine());
+                default:
+                    Console.WriteLine("You broke it!!");    
 
-            TaxFormula l = new TaxFormula(InputL, InputW);
-            Decimal TotalCost = Convert.ToDecimal((l.Area * 5) + (l.Perimeter * .75));
+            }
+
+           
+            
+
+           // TaxFormula taxBracket = new TaxFormula
+           
 
         }
     }
+    enum MyTaxBracket
+    {lessthanTwenty,overTwenty,overFifty,overSeventy}
+        
+    
 }
