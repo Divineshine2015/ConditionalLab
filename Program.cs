@@ -26,36 +26,44 @@ namespace ConditionalLab
         }
         static void Main(string[] args)
         {
-            
-            Double income = Convert.ToDouble(args);
-           Double taxRate;
-            MyTaxBracket TaxBracket=new MyTaxBracket(income);
-            switch (TaxBracket)                     
-            {   
-                case MyTaxBracket.lessthanTwenty:
-
-                    TaxFormula taxR = new TaxFormula(income, taxRate);
-                    Decimal TotalTaxes = Convert.ToDecimal((taxR.CalulateTaxes));
-
-                    break;
-
-
-
-                default:
-                    Console.WriteLine("You broke it!!");    
-
-            }
+            Console.WriteLine("Program Started");
+            Console.WriteLine(args[0]);
+            Double income = Convert.ToDouble(args[0]);
+            Console.WriteLine("args converted to double:{0:c2} ",income);
 
            
-            
-
-           // TaxFormula taxBracket = new TaxFormula
            
+            //MyTaxBracket TaxBracket= MyTaxBracket.lessThanTwenty;
+            //switch (TaxBracket)                     
+            //{   
+            //    case MyTaxBracket.lessThanTwenty:
+            //        Double taxRate = .05;
+            //        TaxFormula taxR = new TaxFormula(income, taxRate);
+            //        Decimal TotalTaxes = Convert.ToDecimal((taxR.CalulateTaxes));
+            //        Console.WriteLine("Your Taxes on income of {0:c2} is {1:c2}", income, TotalTaxes);
+            //        break;
+            //    case MyTaxBracket.overTwenty:
 
+
+            //        break;
+            //    case MyTaxBracket.overFifty:
+            
+            //        break;
+            //    case MyTaxBracket.overSeventy:
+
+            //        break;
+  
+            //    default:
+            //        Console.WriteLine("You broke it!!");
+            //        break;
+
+            //}
+
+       
         }
     }
-    enum MyTaxBracket
-    {lessthanTwenty,overTwenty,overFifty,overSeventy}
+    //enum MyTaxBracket
+    //{lessThanTwenty,overTwenty,overFifty,overSeventy}
         
     
 }
