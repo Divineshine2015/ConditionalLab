@@ -43,8 +43,7 @@ namespace ConditionalLab
                 TaxBracket = MyTaxBracket.overTwenty;
 
 
-            //string line = Console.ReadLine();
-            //TaxBracket = (MyTaxBracket)int.Parse(line);
+           
 
             switch (TaxBracket)
             {
